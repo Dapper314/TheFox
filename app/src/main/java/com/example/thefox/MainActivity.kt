@@ -13,12 +13,13 @@ class MainActivity: AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        drawingView = findViewById<DrawingView>(R.id.vMain)
-        drawingView.draw() // Appel pour déclencher le dessin
+        drawingView = findViewById(R.id.vMain)
+        drawingView.setWillNotDraw(false)
+        drawingView.invalidate()
     }
 
 
-    /*override fun onPause() {
+    override fun onPause() {
          super.onPause()
          drawingView.pause()
      }
@@ -26,5 +27,5 @@ class MainActivity: AppCompatActivity() {
      override fun onResume() {
          super.onResume()
          drawingView.resume()
-     }*/
+     }
 }
