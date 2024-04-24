@@ -7,18 +7,16 @@ import android.graphics.PointF
 import android.graphics.Color
 
 class Player {
-    var color: Char = 'o'
-    var SpeedX = 0F
-    var SpeedY = 0F
-    var CaseWidth = 0F
-    var CaseHeight = 0F
-    var Life: Int = 10
-    var position = 0F
-    val playerColor = Paint()
-    init {
-        playerColor.color = Color.RED
+    val playerpaint = Paint()
+    var PositionX = 0F
+    var PositionY = 0.0
+
+    fun draw(canvas: Canvas) {
+        playerpaint.color = Color.RED
+        canvas.drawCircle(500f, 1000f, 100f, playerpaint)
     }
-    fun draw(canvas: Canvas){
-        canvas.drawCircle(500f, 1000f, 100f, playerColor)
+    fun update(interval:Double){
+        PositionY += interval * 1.5
     }
+
 }
